@@ -14,3 +14,4 @@ class User(SqlAlchemyBase):
     email = Column(String, unique=True)
     hashed_password = Column(String)
     modified_date = Column(DateTime)
+

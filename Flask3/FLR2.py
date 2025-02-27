@@ -1,11 +1,11 @@
-from sqlalchemy import integer, SQLAlchemy, Column, Text, String, DateTime, Boolean
+from sqlalchemy import Column, Integer, String, DateTime, Boolean, Text
 
 
-class Jobs(SQLAlchemy):
-    id = Column(integer)
-    team_leader = Column(integer)
+class Jobs(SqlAlchemyBase):
+    id = Column(Integer)
+    team_leader = Column(Integer)
     job = Column(Text)
-    work_size = Column(integer)
+    work_size = Column(Integer)
     collaborators = Column(String)
     start_date = Column(DateTime)
     end_date = Column(DateTime)
