@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<form method="post">
+    <br><br>
+    <div style="display: flex; align-items: center;">
+        <img src="{{ url_for('static', filename='img/MARS-2-7.png') }}" style="margin-right: 10px;">
+        <h3 style="margin: 0;">Аварийный доступ</h3>
+    </div>
+    <input type="text" name="id_astro" class="form-control db-3">
+</form>
+{% endblock %}
