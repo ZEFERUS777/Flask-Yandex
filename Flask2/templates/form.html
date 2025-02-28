@@ -1,11 +1,25 @@
 {% extends "base.html" %}
 {% block content %}
 <form method="post">
-    <br><br>
-    <div style="display: flex; align-items: center;">
-        <img src="{{ url_for('static', filename='img/MARS-2-7.png') }}" style="margin-right: 10px;">
-        <h3 style="margin: 0;">Аварийный доступ</h3>
+    <div class="login_form">
+        <br><br>
+        <div style="display: flex; align-items: center;">
+            <img src="{{ url_for('static', filename='img/MARS-2-7.png') }}" style="margin-right: 10px;">
+            <h3 style="margin: 0;">Аварийный доступ</h3>
+        </div>
+        <label>id астронафта</label><br>
+        <input type="text" name="id_astro" class="form-control db-3">
+
+        <label style="margin-top: 15px">Пароль астронафта</label><br>
+        <input type="password" name="password_astro" class="form-control db-3">
+
+        <label style="margin-top: 15px">id капитана</label><br>
+        <input type="text" name="id_captain" class="form-control db-3" id="login_captain_inp">
+
+        <label style="margin-top: 15px">Пароль капитана</label><br>
+        <input type="password" name="password_captain" class="form-control db-3" style="margin-bottom: 35px">
+
+        <button type="submit" class="btn btn-primary">Доступ</button>
     </div>
-    <input type="text" name="id_astro" class="form-control db-3">
 </form>
 {% endblock %}
