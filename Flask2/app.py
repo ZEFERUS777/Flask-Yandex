@@ -38,6 +38,11 @@ def login_form():
     return render_template('form.html')
 
 
+@app.route('/distribution')
+def distribution():
+    return render_template('distribution.html',
+                           astro_list=astro_list)
+
 
 if __name__ == '__main__':
     app.run(debug=True)
