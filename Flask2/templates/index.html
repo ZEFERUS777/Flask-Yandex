@@ -1,10 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends 'base.html' %}
+{% block title %}Main page{% endblock %}
+{% block content %}
+<div class="container mt-4">
+    <h3 style="text-align: center; margin: 50px;">Works log</h3>
+    {% for astro in astronauts %}
+    <table class="table table-striped table-hover table-bordered align-middle">
+        <h4>Action # {{ astro.id }}</h4>
+        <thead class="table-info">
+        <tr>
+            <th>ID</th>
+            <th>Название работы</th>
+            <th>Ответственный</th>
+            <th>Продолжительность</th>
+            <th>Команда</th>
+            <th>Статус</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>{{ astronaut.name_work }}</td>
+            <td>{{ astronaut.Team_Lead }}</td>
+            <td>{{ astronaut.Duration }}</td>
+            <td>{{ astronaut.id_teams }}</td>
+            <td>{{ 'Completed' if astronaut.finished else 'In Progress' }}</td>
+        </tr>
+
+        </tbody>
+    </table>
+    {% endfor %}
+</div>
+{% endblock %}

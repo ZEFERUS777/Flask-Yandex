@@ -1,11 +1,30 @@
 from flask import Flask, render_template
+from sqlalchemy.orm import sessionmaker
+
+from static.data.db import db, meta
+
+
+
+
 
 app = Flask(__name__, template_folder='templates')
 
 
 @app.route('/')
 def index():
-    return render_template('base.html')
+    Sess = sessionmaker(bind=db)
+    session = Sess()
+    try:
+        astr_table = meta.tables['Astronafts']
+        result = session.execute(astr_table.select()).fetchall()
+
+        astronauts = [dict(row) for row in result]
+        return render_template('index.html', astronauts=astronauts)
+    except Exception as e:
+        print('Error:', e)
+        return render_template('index.html', astronauts=None)
+    finally:
+        session.close()
 
 
 @app.route('/login')
@@ -44,6 +63,8 @@ def results(name, step, balls):
                            name=name,
                            step=step,
                            balls=balls)
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)
